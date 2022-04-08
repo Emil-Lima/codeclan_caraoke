@@ -23,3 +23,8 @@ class TestRoom(unittest.TestCase):
 
     def test_room_has_list_of_customers(self):
         self.assertEqual(self.list_customers, self.room1.customers)
+
+    def test_room_can_add_one_new_guest(self):
+        guest_new = Guest("Jane", 500)
+        self.room1.add_guest(guest_new)
+        self.assertEqual(guest_new, self.room1.customers[-1])
