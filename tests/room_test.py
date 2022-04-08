@@ -13,7 +13,7 @@ class TestRoom(unittest.TestCase):
         song2 = Song("name of song 2", "pop")
         self.list_of_songs = [song1, song2]
 
-        self.room1 = Room("room1", self.list_of_songs, self.list_customers)
+        self.room1 = Room("room1", self.list_of_songs, self.list_customers, 50)
 
     def test_room_has_a_name(self):
         self.assertEqual("room1", self.room1.name)
@@ -23,6 +23,9 @@ class TestRoom(unittest.TestCase):
 
     def test_room_has_list_of_customers(self):
         self.assertEqual(self.list_customers, self.room1.customers)
+
+    def test_room_has_maximum_capacity(self):
+        self.assertEqual(50, self.room1.maximum_capacity)
 
     def test_room_can_add_one_new_guest(self):
         guest_new = Guest("Jane", 500)
