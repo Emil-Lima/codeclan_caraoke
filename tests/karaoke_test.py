@@ -9,8 +9,8 @@ class TestKaraoke(unittest.TestCase):
         room2 = Room("name of room 2", ["a second list of songs",  "here"], ["a second list of customers", "here"], 20, 5000)
         self.list_of_rooms = [room1, room2]
 
-        guest1 = Guest("Dan", 20)
-        guest2 = Guest("Mir", 30)
+        guest1 = Guest("Dan", 20, "a first list of songs")
+        guest2 = Guest("Mir", 30, "song not in any list")
         self.list_of_guests = [guest1, guest2]
 
         self.karaoke1 = Karaoke("name of karaoke 1", self.list_of_rooms, self.list_of_guests, 5)
@@ -34,7 +34,7 @@ class TestKaraoke(unittest.TestCase):
         self.assertEqual(3, len(self.karaoke1.rooms))
 
     def test_karaoke_can_let_a_new_guest_in_if_enough_money(self):
-        guest_new = Guest("New guest", 67)
+        guest_new = Guest("New guest", 67, "random song")
         self.karaoke1.let_guest_in(guest_new)
         self.assertEqual(guest_new, self.karaoke1.guests[-1])
         self.assertEqual(3, len(self.karaoke1.guests))

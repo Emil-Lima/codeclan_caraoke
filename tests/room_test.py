@@ -5,8 +5,8 @@ from src.song import Song
 
 class TestRoom(unittest.TestCase):
     def setUp(self):
-        guest1 = Guest("Emilio", 100)
-        guest2 = Guest("John", 200)
+        guest1 = Guest("Emilio", 100, "name of song 2")
+        guest2 = Guest("John", 200, "song not in any list")
         self.list_customers = [guest1, guest2]
 
         song1 = Song("name of song 1", "rock")
@@ -30,7 +30,7 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(50, self.room1.maximum_capacity)
 
     def test_room_can_add_one_new_guest(self):
-        guest_new = Guest("Jane", 500)
+        guest_new = Guest("Jane", 500, "name of song 1")
         self.room1.add_guest(guest_new)
         self.assertEqual(guest_new, self.room1.customers[-1])
 
@@ -47,7 +47,7 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(song_new, self.room1.songs[-1])
 
     def test_room_does_not_exceed_max_capacity(self):
-        guest_new = Guest("Jane", 500)
+        guest_new = Guest("Jane", 500, "name of song 1")
         self.room2.add_guest(guest_new)
         self.assertEqual(2, len(self.room2.customers))
 
