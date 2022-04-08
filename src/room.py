@@ -3,3 +3,6 @@ class Room:
         self.name = input_name
         self.songs = input_songs
         self.customers = input_customers
+
+    def add_guest(self, guest_data):
+        self.customers.append(guest_data)
