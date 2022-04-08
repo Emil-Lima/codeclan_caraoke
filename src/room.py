@@ -6,7 +6,8 @@ class Room:
         self.maximum_capacity = input_maximum_capacity
 
     def add_guest(self, guest_data):
-        self.customers.append(guest_data)
+        if len(self.customers) < self.maximum_capacity:
+            self.customers.append(guest_data)
 
     def check_out_guest(self, guest_data):
         self.customers.remove(guest_data)
