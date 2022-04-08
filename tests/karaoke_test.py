@@ -17,3 +17,9 @@ class TestKaraoke(unittest.TestCase):
 
     def test_karaoke_has_list_of_rooms(self):
         self.assertEqual(self.list_of_rooms, self.karaoke1.rooms)
+
+    def test_karaoke_can_add_new_room(self):
+        room_new = Room("name of new room", ["list of songs"], ["list of customers"])
+        self.karaoke1.add_room(room_new)
+        self.assertEqual(room_new, self.karaoke1.rooms[-1])
+        self.assertEqual(3, len(self.karaoke1.rooms))
