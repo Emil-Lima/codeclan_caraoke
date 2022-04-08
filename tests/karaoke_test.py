@@ -2,7 +2,6 @@ import unittest
 from src.karaoke import Karaoke
 from src.room import Room
 from src.guest import Guest
-from src.song import Song
 
 class TestKaraoke(unittest.TestCase):
     def setUp(self):
