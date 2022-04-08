@@ -10,13 +10,20 @@ class TestKaraoke(unittest.TestCase):
         room2 = Room("name of room 2", ["a second list of songs",  "here"], ["a second list of customers", "here"], 20)
         self.list_of_rooms = [room1, room2]
 
-        self.karaoke1 = Karaoke("name of karaoke 1", self.list_of_rooms)
+        guest1 = Guest("Dan", 20)
+        guest2 = Guest("Mir", 30)
+        self.list_of_guests = [guest1, guest2]
+
+        self.karaoke1 = Karaoke("name of karaoke 1", self.list_of_rooms, self.list_of_guests)
     
     def test_karaoke_has_a_name(self):
         self.assertEqual("name of karaoke 1", self.karaoke1.name)
 
     def test_karaoke_has_list_of_rooms(self):
         self.assertEqual(self.list_of_rooms, self.karaoke1.rooms)
+
+    def test_karaoke_has_list_of_customers_not_in_rooms(self):
+        self.assertEqual(2, len(self.karaoke1.guests))
 
     def test_karaoke_can_add_new_room(self):
         room_new = Room("name of new room", ["list of songs"], ["list of customers"], 10)
