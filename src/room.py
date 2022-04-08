@@ -1,8 +1,9 @@
 class Room:
-    def __init__(self, input_name, input_songs, input_customers):
+    def __init__(self, input_name, input_songs, input_customers, input_maximum_capacity):
         self.name = input_name
         self.songs = input_songs
         self.customers = input_customers
+        self.maximum_capacity = input_maximum_capacity
 
     def add_guest(self, guest_data):
         self.customers.append(guest_data)
