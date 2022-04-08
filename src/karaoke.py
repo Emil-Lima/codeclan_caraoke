@@ -7,3 +7,6 @@ class Karaoke:
     
     def add_room(self, room_data):
         self.rooms.append(room_data)
+
+    def let_guest_in(self, guest_data):
+        self.guests.append(guest_data)
