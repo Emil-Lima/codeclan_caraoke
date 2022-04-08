@@ -53,3 +53,9 @@ class TestRoom(unittest.TestCase):
 
     def test_room_has_a_money_attribute(self):
         self.assertEqual(2000, self.room1.money)
+
+    def test_guest_shouts_if_fav_song_in_list(self):
+        guest_will_shout = Guest("Jane", 500, "name of song 1")
+        guest_will_not_shout = Guest("David", 20, "random song")
+        self.assertEqual("Whoo!", self.room1.shout_if_favourite_song(guest_will_shout))
+        self.assertEqual(None, self.room1.shout_if_favourite_song(guest_will_not_shout))
