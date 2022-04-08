@@ -28,3 +28,8 @@ class TestRoom(unittest.TestCase):
         guest_new = Guest("Jane", 500)
         self.room1.add_guest(guest_new)
         self.assertEqual(guest_new, self.room1.customers[-1])
+
+    def test_room_can_add_one_new_song(self):
+        song_new = Song("name of new song", "techno")
+        self.room1.add_song(song_new)
+        self.assertEqual(song_new, self.room1.songs[-1])
