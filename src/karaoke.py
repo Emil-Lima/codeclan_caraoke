@@ -9,4 +9,6 @@ class Karaoke:
         self.rooms.append(room_data)
 
     def let_guest_in(self, guest_data):
-        self.guests.append(guest_data)
+        if guest_data.money >= self.entry_fee:
+            self.guests.append(guest_data)
+            guest_data.money -= self.entry_fee
