@@ -34,8 +34,9 @@ class TestKaraoke(unittest.TestCase):
         self.assertEqual(room_new, self.karaoke1.rooms[-1])
         self.assertEqual(3, len(self.karaoke1.rooms))
 
-    def test_karaoke_can_let_a_new_guest_in(self):
-        guest_new = ("New guest", 67)
+    def test_karaoke_can_let_a_new_guest_in_if_enough_money(self):
+        guest_new = Guest("New guest", 67)
         self.karaoke1.let_guest_in(guest_new)
         self.assertEqual(guest_new, self.karaoke1.guests[-1])
         self.assertEqual(3, len(self.karaoke1.guests))
+        self.assertEqual(62, guest_new.money)
